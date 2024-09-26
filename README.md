@@ -5,4 +5,4 @@ Group Member Names:
 2. Faith Wang
 3. Nicole Carrera
 4. Prim Boonyachai 
-5. Zenya Hsu - zenyahsu@usc.edu
+5. Zenya Hsu zhsu@usc.edu
