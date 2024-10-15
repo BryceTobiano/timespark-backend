@@ -1,0 +1,18 @@
+/*======= Main wrap for page =======*/
+.page {
+    display: flex;
+    height: 100%;
+
+    /* Spacing from Navbar*/
+    position: relative;
+    margin-left: 40px;
+}
+
+/* ======= Content Wrapper =======*/
+.content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 80px;
+    gap: 64px;
+}
