@@ -1,4 +1,4 @@
-/*======= Main wrap for page =======*/
+/* ======= Main wrap for page ======= */
 .page {
     display: flex;
     height: 100%;
@@ -8,7 +8,7 @@
     margin-left: 40px;
 }
 
-/* ======= Content Wrapper =======*/
+/* ======= Content Wrapper ======= */
 .content {
     display: flex;
     flex-direction: column;

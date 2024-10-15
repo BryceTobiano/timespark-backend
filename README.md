@@ -6,4 +6,3 @@ Group Member Names:
 3. Nicole Carrera carreran@usc.edu
 4. Prim Boonyachai boonyach@usc.edu
 5. Zenya Hsu zhsu@usc.edu
-
