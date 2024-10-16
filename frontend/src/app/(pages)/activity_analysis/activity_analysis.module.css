@@ -1,1 +1,166 @@
-/* YOUR PAGE SPECIFIC CSS HERE */
+.container {
+    padding: 5%;
+    background-color: #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5%;
+  }
+
+  .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      margin-bottom: 5%;
+      gap:3%;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+  }
+  
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  
+  .card {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    text-align: center; /* For centering text content if needed */
+    height: 100%; /* Ensure the card has a height */
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+  
+  .cardTitle {
+    align-self: flex-start; /* Align the title to the left */
+    text-align: left; /* Ensure text inside the title stays left-aligned */
+    width: 100%; /* Make sure the title spans the full width */
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .efficiencyScore {
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+  
+  .scoreValue {
+    font-size: 1.875rem;
+    font-weight: bold;
+  }
+  
+  .date {
+    font-size: 0.875rem;
+    color: #6b7280;
+    align-self: flex-start; /* Align the title to the left */
+    text-align: left; /* Ensure text inside the title stays left-aligned */
+    width: 100%; /* Make sure the title spans the full width */
+    margin-bottom: 0.5rem;
+  }
+  
+  .taskList {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 80vh;
+  }
+  
+  .task {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+  }
+  
+  .completed {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .inProgress {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  .notStarted {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .workLogLabel {
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+  
+  .timeSheet {
+    grid-column: span 3 / span 3;
+  }
+  
+  .timeSheetContent {
+    display: flex;
+    align-items: center;
+    gap:5%;
+    margin-top:5%;
+  }
+  
+  .totalHours {
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .timeSheetList {
+    list-style-type: none;
+    padding: 0;
+    width:100%;
+  }
+  
+  .timeSheetItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .colorDot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 10px;
+    margin-right: 0.5rem;
+  }
+  
+  .itemName {
+    margin-right: 0.5rem;
+  }
+  
+  .itemHours {
+    font-weight: 600;
+  }
+  
+  .chartContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
