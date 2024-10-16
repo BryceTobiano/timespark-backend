@@ -7,7 +7,6 @@ export default function Home() {
       <main className={styles.main}>
         <h1>Home page</h1>
       </main>
-
     </div>
   );
 }
