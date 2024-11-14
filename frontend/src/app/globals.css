@@ -1,5 +1,5 @@
 
-/* Color Variables */
+/*======= Color Variables =======*/
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -32,7 +32,7 @@ body {
 
 
 
-/* START - STYLING DEFAULT COMPONENTS */
+/* ======= START - STYLING DEFAULT COMPONENTS ======= */
 h1 {
   font-weight: 500;
 }
@@ -41,21 +41,9 @@ a {
   color: inherit;
   text-decoration: none;
 }
-/* END - STYLING DEFAULT COMPONENTS */
+/* ======= END - STYLING DEFAULT COMPONENTS ======= */
 
-.main-content {
-  margin-left: 100px;
-  padding: 40px;
-}
-
-.main-content h1 {
-  font-size: 28px;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-/* END - LAYOUT CLASSES */
-
-/* TODO  Implement Dark Theme */
+/* TODO: Implement Dark Theme */
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
