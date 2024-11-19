@@ -1,6 +1,3 @@
 djangorestframework
 django-cors-headers
 djangorestframework-simplejwt
-google-auth
-google-api-python-client
-python-dotenv

@@ -1,8 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
-from datetime import datetime
-from django.utils.timezone import now
-
 
 # Create your models here.
 class UserManager(BaseUserManager):
@@ -46,13 +43,9 @@ class User(AbstractUser):
     name = models.CharField(max_length=255)
     email = models.CharField(max_length=255, unique=True)
     password = models.CharField(max_length=255)
-    googleSignUpOnly = models.BooleanField(default=False)
-
-    google_access_token = models.TextField(max_length=255, default="")
-    google_refresh_token = models.TextField(max_length=255, default="")
-    token_expiry = models.DateTimeField(default=now())
-
+    
     username = None
+
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
