@@ -3,7 +3,6 @@
 import React from 'react';
 import styles from './login.module.css';
 import Image from 'next/image';
-import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { login } from '@/app/actions/auth'
 import { useFormState, useFormStatus } from 'react-dom'
@@ -55,7 +54,7 @@ function SubmitButton() {
   const { pending } = useFormStatus()
  
   return (
-    <button disabled={pending} type="submit" value="Submit" className="btn btn-primary border-1 border-black border-solid w-100 mb-3">
+    <button disabled={pending} type="submit" value="Submit" className="btn btn-primary w-100 mb-3">
       Sign Up
     </button>
   )
