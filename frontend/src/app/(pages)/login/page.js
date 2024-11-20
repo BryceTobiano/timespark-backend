@@ -3,6 +3,7 @@
 import React from 'react';
 import styles from './login.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { login } from '@/app/actions/auth'
 import { useFormState, useFormStatus } from 'react-dom'
@@ -34,12 +35,14 @@ export default function LoginPage() {
           <SubmitButton />
           
         </form>
-        {/* <div className="text-center text-muted my-3">OR</div>
-        <button className="btn btn-light w-100 mb-2 d-flex align-items-center justify-content-center">
-          <Image src="/google-icon.png" alt="Google Icon" width={20} height={20} className="me-2" />
-          Sign in with Google
-        </button>
-        <button className="btn btn-dark w-100 d-flex align-items-center justify-content-center">
+        <div className="text-center text-muted my-3">OR</div>
+        <Link style={{textDecoration: "none"}} href="http://127.0.0.1:8000/api/google/auth">
+          <button className="btn btn-light border-1 border-black border-solid w-100 mb-2 d-flex align-items-center justify-content-center">
+            <Image src="/icons/google-icon.png" alt="Google Icon" width={20} height={20} className="me-2" />
+            Sign in with Google
+          </button>
+        </Link>
+        {/* <button className="btn btn-dark w-100 d-flex align-items-center justify-content-center">
           <Image src="/apple-icon.png" alt="Apple Icon" width={20} height={20} className="me-2" />
           Sign in with Apple
         </button> */}
@@ -52,7 +55,7 @@ function SubmitButton() {
   const { pending } = useFormStatus()
  
   return (
-    <button disabled={pending} type="submit" value="Submit" className="btn btn-primary w-100 mb-3">
+    <button disabled={pending} type="submit" value="Submit" className="btn btn-primary border-1 border-black border-solid w-100 mb-3">
       Sign Up
     </button>
   )
