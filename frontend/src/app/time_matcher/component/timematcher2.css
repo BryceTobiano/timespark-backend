@@ -98,3 +98,6 @@
     display: flex;
     justify-content: space-
 }
+.timeSlots {
+    border:1px solid blue;
+}
