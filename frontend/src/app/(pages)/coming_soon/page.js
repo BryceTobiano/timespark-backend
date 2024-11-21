@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './coming_soon.module.css';
 import Image from 'next/image';
-import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { David_Libre } from 'next/font/google';
 
