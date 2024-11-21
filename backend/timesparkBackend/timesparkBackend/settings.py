@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import os
-from loaddotenv import load_dotenv
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -106,8 +106,12 @@ WSGI_APPLICATION = 'timesparkBackend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': os.getenv("SUPABASE_HOST"),
+        'NAME': os.getenv("SUPABASE_NAME"),
+        'PORT': os.getenv("SUPABASE_PORT"),
+        'USER': os.getenv("SUPABASE_USER"),
+        'PASSWORD': os.getenv("SUPABASE_PASSWORD")
     }
 }
 
