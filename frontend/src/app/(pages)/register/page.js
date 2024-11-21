@@ -3,13 +3,12 @@
 import React from 'react';
 import styles from './login.module.css';
 import Image from 'next/image';
-import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { login } from '@/app/actions/auth'
+import { signup } from '@/app/actions/auth'
 import { useFormState, useFormStatus } from 'react-dom'
 
-export default function LoginPage() {
-  const [state, action] = useFormState(login, undefined)
+export default function Register() {
+  const [state, action] = useFormState(signup, undefined)
 
   return (
     <div className={`${styles.container} container-fluid d-flex align-items-center justify-content-center min-vh-100`}>
@@ -17,9 +16,14 @@ export default function LoginPage() {
         <div className="text-center mb-4">
           <Image src="/logo.png" alt="Time Spark Logo" width={74} height={82} />
           <h1 className="h4 mt-2">TIME SPARK</h1>
-          <h2 className="h4 mt-2">Login</h2>
-          </div>
+          <h2 className="h4 mt-2">Register</h2>
+        </div>
         <form action={action}>
+          <div className="mb-3">
+            <input type="name" name="name" className="form-control" placeholder="Name" />
+          </div>
+          {state?.errors?.name && <p>{state.errors.name}</p>}
+
           <div className="mb-3">
             <input type="email" name="email" className="form-control" placeholder="Email" />
           </div>
@@ -28,7 +32,16 @@ export default function LoginPage() {
           <div className="mb-3">
             <input type="password" name="password" className="form-control" placeholder="Password" />
           </div>
-          {state?.errors?.password && <p>{state.errors.password}</p>}
+          {state?.errors?.password && (
+            <div>
+              <p>Password must:</p>
+              <ul>
+                {state.errors.password.map((error) => (
+                  <li key={error}>{error}</li>
+                ))}
+              </ul>
+            </div>
+          )}
           {/* <div className="text-end mb-3">
             <a href="#" className="text-primary text-decoration-none small">Forgot Password?</a>
           </div> */}
@@ -55,7 +68,7 @@ function SubmitButton() {
   const { pending } = useFormStatus()
  
   return (
-    <button disabled={pending} type="submit" value="Submit" className="btn btn-primary border-1 border-black border-solid w-100 mb-3">
+    <button disabled={pending} type="submit" value="Submit" className="btn btn-primary w-100 mb-3">
       Sign Up
     </button>
   )
