@@ -13,7 +13,6 @@ from dotenv import load_dotenv
 from django.shortcuts import redirect
 from django.views import View
 from google_auth_oauthlib.flow import Flow
-from datetime import timedelta
 import requests
 from django.utils.timezone import now
 from django.db import IntegrityError
