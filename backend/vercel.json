@@ -2,7 +2,7 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "timsparkBackend/wsgi.py"
+        "dest": "timesparkBackend/wsgi.py"
       }
     ]
   }
