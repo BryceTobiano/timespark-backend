@@ -18,8 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from api.views import MyTokenObtainPairView
+from .views import index
 
 urlpatterns = [
+    path('', index),
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
     path("api/token/", MyTokenObtainPairView.as_view(), name="get_token"),
