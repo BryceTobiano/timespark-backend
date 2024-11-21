@@ -23,6 +23,29 @@ from django.db import IntegrityError
 load_dotenv()
 CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
 CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
+from .models import User
+from .serializers import UserSerializer
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework_simplejwt.views import TokenObtainPairView
+from .serializers import MyTokenObtainPairSerializer
+
+# Google Calendar Imports
+import os
+from dotenv import load_dotenv
+from django.shortcuts import redirect
+from django.views import View
+from google_auth_oauthlib.flow import Flow
+from datetime import timedelta
+import requests
+from django.utils.timezone import now
+from django.db import IntegrityError
+
+
+
+load_dotenv()
+CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
+CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
 
 # Create your views here.
 class CreateUserView(generics.CreateAPIView):
