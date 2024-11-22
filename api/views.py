@@ -16,13 +16,14 @@ from datetime import timedelta
 import requests
 from django.utils.timezone import now
 from django.db import IntegrityError
-from decouple import config
+from dotenv import load_dotenv
+load_dotenv()
 
 
 
 
-CLIENT_ID = config("GOOGLE_CLIENT_ID")
-CLIENT_SECRET = config("GOOGLE_CLIENT_SECRET")
+CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
+CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
 from .models import User
 from .serializers import UserSerializer
 from rest_framework import generics
@@ -30,8 +31,8 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.views import TokenObtainPairView
 from .serializers import MyTokenObtainPairSerializer
 
-CLIENT_ID = config("GOOGLE_CLIENT_ID")
-CLIENT_SECRET = config("GOOGLE_CLIENT_SECRET")
+CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
+CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
 
 
 from django.http import HttpResponse

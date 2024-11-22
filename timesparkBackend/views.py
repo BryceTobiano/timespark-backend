@@ -4,10 +4,11 @@ from datetime import datetime
 from django.http import HttpResponse
 
 import os
-from decouple import config
+from dotenv import load_dotenv
+load_dotenv()
 
 def index(request):
-    now = config('DEBUG')
+    now = os.getenv('DEBUG')
     html = f'''
     <html>
         <body>
