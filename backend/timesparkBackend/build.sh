@@ -14,5 +14,3 @@ python3 manage.py migrate --noinput
 echo "Collect Static..." 
 python3 manage.py collectstatic --noinput --clear
 
-echo "Running Server..." 
-python manage.py runserver
