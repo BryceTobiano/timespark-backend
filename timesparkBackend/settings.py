@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import os
-
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+SECRET_KEY = config("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG")
+DEBUG = config("DEBUG")
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
@@ -107,11 +107,11 @@ WSGI_APPLICATION = 'timesparkBackend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': os.environ.get("SUPABASE_HOST"),
-        'NAME': os.environ.get("SUPABASE_NAME"),
-        'PORT': os.environ.get("SUPABASE_PORT"),
-        'USER': os.environ.get("SUPABASE_USER"),
-        'PASSWORD': os.environ.get("SUPABASE_PASSWORD")
+        'HOST': config("SUPABASE_HOST"),
+        'NAME': config("SUPABASE_NAME"),
+        'PORT': config("SUPABASE_PORT"),
+        'USER': config("SUPABASE_USER"),
+        'PASSWORD': config("SUPABASE_PASSWORD")
     }
 }
 

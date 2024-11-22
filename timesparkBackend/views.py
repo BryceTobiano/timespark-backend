@@ -4,9 +4,10 @@ from datetime import datetime
 from django.http import HttpResponse
 
 import os
+from decouple import config
 
 def index(request):
-    now = os.environ.get('DEBUG')
+    now = config('DEBUG')
     html = f'''
     <html>
         <body>
