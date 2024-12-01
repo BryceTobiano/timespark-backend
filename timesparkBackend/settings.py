@@ -14,7 +14,6 @@ from pathlib import Path
 from datetime import timedelta
 import os
 from dotenv import load_dotenv
-
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -73,7 +72,8 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-      "TOKEN_OBTAIN_SERIALIZER": "api.MyTokenObtainPairSerializer",
+    "TOKEN_OBTAIN_SERIALIZER": "api.MyTokenObtainPairSerializer",
+    'SIGNING_KEY': SECRET_KEY,  # Ensure consistency here
 
 }
 

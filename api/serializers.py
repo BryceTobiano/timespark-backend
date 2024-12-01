@@ -48,3 +48,24 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
             'refresh': str(refresh),
             'access': str(refresh.access_token),
         }
+    
+from .models import Calendar, Event, Category
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        fields = '__all__'
+
+
+class CalendarSerializer(serializers.ModelSerializer):
+    events = EventSerializer(many=True, read_only=True)  # Nested events
+
+    class Meta:
+        model = Calendar
+        fields = '__all__'
+
+        
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = '__all__'
