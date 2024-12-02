@@ -49,13 +49,12 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
             'access': str(refresh.access_token),
         }
     
-from .models import Calendar, Event, Category
+from .models import Calendar, Event, Category, Task
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = '__all__'
-
 
 class CalendarSerializer(serializers.ModelSerializer):
     events = EventSerializer(many=True, read_only=True)  # Nested events
@@ -68,4 +67,9 @@ class CalendarSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
+        fields = '__all__'
+
+class TaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
         fields = '__all__'

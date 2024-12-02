@@ -146,3 +146,30 @@ class Event(models.Model):
     def __str__(self):
         return f"{self.title} (Calendar: {self.calendar.name})"
     
+class Task(models.Model):
+    """
+    A model representing a to-do task.
+    """
+    STATUS_CHOICES = [
+        ('not_done', 'Not Done'),
+        ('done', 'Done'),
+        ('deleted', 'Deleted'),
+    ]
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,  # Delete events if the user is deleted
+        related_name='tasks',     # Allows reverse access: user.events.all()
+        help_text="The user who created or owns this event"
+    )
+    name = models.CharField(max_length=255, help_text="The name of the task")
+    status = models.CharField(
+        max_length=10,
+        choices=STATUS_CHOICES,
+        default='not_done',
+        help_text="The status of the task"
+    )
+    created_at = models.DateTimeField(auto_now_add=True, help_text="When the task was created")
+    updated_at = models.DateTimeField(auto_now=True, help_text="When the task was last updated")
+
+    def __str__(self):
+        return f"{self.name} - {self.get_status_display()}"

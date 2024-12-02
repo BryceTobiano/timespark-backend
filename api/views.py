@@ -117,8 +117,8 @@ class GoogleCalendarRedirectView(View):
 
         return response
 
-from .models import Calendar, Event, Category
-from .serializers import CalendarSerializer, EventSerializer, CategorySerializer
+from .models import Calendar, Event, Category, Task
+from .serializers import CalendarSerializer, EventSerializer, CategorySerializer, TaskSerializer
 
 class CalendarListCreateView(generics.ListCreateAPIView):
     queryset = Calendar.objects.all()
@@ -171,4 +171,20 @@ class CategoryListCreateView(generics.ListCreateAPIView):
         if user_id:
             queryset = queryset.filter(user_id=user_id)
         return queryset
+    
+class TaskListCreateView(generics.ListCreateAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+    permission_classes = [AllowAny] #TODO: Delete this line
+
+    def get_queryset(self):
+        """
+        Optionally filters the calendars by 'user' query parameter.
+        """
+        queryset = Task.objects.all()
+        user_id = self.request.query_params.get('user')  # Fetch the 'user' query parameter
+        if user_id:
+            queryset = queryset.filter(user_id=user_id)
+        return queryset
+
     
