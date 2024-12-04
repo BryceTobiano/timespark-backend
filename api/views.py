@@ -32,7 +32,7 @@ CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
 class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
 # View users, for debugging 
 class ListUsersView(generics.ListAPIView):
