@@ -187,4 +187,26 @@ class TaskListCreateView(generics.ListCreateAPIView):
             queryset = queryset.filter(user_id=user_id)
         return queryset
 
-    
+
+class UserDashboardView(APIView):
+    permission_classes = [AllowAny]   #TODO: Delete this line
+
+    def get(self, request, user_id=None):
+        user = request.user if user_id is None else User.objects.get(id=user_id)
+
+        # Get the user's calendars, events, and categories
+        calendars = Calendar.objects.filter(user=user)
+        events = Event.objects.filter(user=user)
+        categories = Category.objects.filter(user=user)
+
+        # Serialize the data
+        calendar_data = CalendarSerializer(calendars, many=True).data
+        event_data = EventSerializer(events, many=True).data
+        category_data = CategorySerializer(categories, many=True).data
+
+        # Return combined data
+        return JsonResponse({
+            'calendars': calendar_data,
+            'events': event_data,
+            'categories': category_data
+        })

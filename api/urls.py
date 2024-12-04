@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path,include
 from .views import CreateUserView, ListUsersView, GoogleCalendarInitView, GoogleCalendarRedirectView
 from .views import EventListCreateView, EventsDeleteView, CalendarListCreateView, CategoryListCreateView, TaskListCreateView
+from .views import UserDashboardView
 
 urlpatterns = [
     path('register/', CreateUserView.as_view(), name="register"),
@@ -12,6 +13,6 @@ urlpatterns = [
     path('calendar/', CalendarListCreateView.as_view(), name="calendars"),
     path('category/', CategoryListCreateView.as_view(), name="categories"),
     path('tasks/', TaskListCreateView.as_view(), name="tasks"),
-    # TODO: Test URLS: Delete these URLs
+    path('user-dashboard/<int:user_id>/', UserDashboardView.as_view(), name='user-dashboard-by-id'),
     path('users/', ListUsersView.as_view(), name="users"), 
 ]
